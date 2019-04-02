@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package ggarry9424.comic_web;
+
+option go_package = "protobuf";
+
+message Paging{
+    bool hasNext = 1;
+    string next = 2;
+    bool hasPrevious = 3;
+    string previous = 4;
+}

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package ggarry9424.comic_web;
+
+option go_package = "protobuf";
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "protobuf/utility.proto";
+
+message ComicID {
+    string id = 1;
+}
+
+message Comic{
+    string comicID = 1;
+    string title = 2;
+    string category = 3;
+    string imageUrl = 4;
+    string link = 5;
+    string comicUpdatedAt = 6;
+}
+
+message ComicPagination {
+    repeated Comic comics = 1;
+    ggarry9424.comic_web.Paging paging = 2;
+}
+
+message ComicPaginationParams {
+    string cursorID = 1;
+}
+
+service ComicService {
+    rpc ListComics(ComicPaginationParams) returns (ComicPagination) {}
+    rpc GetComicByID(google.protobuf.StringValue) returns (Comic) {}
+    rpc DeleteComicByID(google.protobuf.StringValue) returns (google.protobuf.Empty) {}
+}

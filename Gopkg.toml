@@ -3,5 +3,9 @@
   unused-packages = true
 
 [[constraint]]
+  version = "v1.0.0-rc1"
+  name = "go.mongodb.org/mongo-driver"
+
+[[constraint]]
   name = "google.golang.org/grpc"
   version = "1.3.1"
