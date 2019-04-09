@@ -14,7 +14,7 @@
                 <strong>{{ comic.title }}</strong>
                 <b-tag type="is-pulled-right is-primary">{{ comic.category }}</b-tag>
               </div>
-              <div>time: {{comic.comicupdatedat}}</div>
+              <div>{{comic.comicupdatedat}}</div>
             </div>
             <footer class="card-footer">
               <a :href="comic.link" class="card-footer-item" target="_blank">Go to the website</a>
