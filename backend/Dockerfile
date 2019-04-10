@@ -12,5 +12,6 @@ FROM golang:1.12-alpine
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 COPY --from=builder /go/src/github.com/ggary9424/comic-grpc-web/backend/comic-grpc-web-server .
+COPY --from=builder /go/src/github.com/ggary9424/comic-grpc-web/backend/configs/local.toml .
 
-CMD ["./comic-grpc-web-server"]
+CMD ["./comic-grpc-web-server", "run-server", "--config", "./local.toml"]
