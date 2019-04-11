@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  backend:
+    # image: comic-grpc-web-backend:v0.0.1
+    build:
+      context: ./backend/
+      dockerfile: ./Dockerfile
+
+  proxy:
+    build:
+      context: ./proxy/
+      dockerfile: ./Dockerfile
+    links:
+      - backend
+    ports:
+      - "8080:8080"
