@@ -17,7 +17,6 @@ Mainly, this project is created for me to learn the `Golang` and [`gRPC`](https:
 
 1. Docker v18.09.2
 2. docker-compose v1.23.2
-3. Mac with MongoDB at port 27017
 
 ## Execution
 
@@ -25,9 +24,11 @@ Mainly, this project is created for me to learn the `Golang` and [`gRPC`](https:
 docker-compose up
 ```
 
+And open http://localhost:8081 on your browser
+
 ## TODO
 
-- [ ] Add Dockerfile of MongoDB with fake data for `docker-compose`
+- [x] Add Dockerfile of MongoDB with fake data for `docker-compose`
 - [ ] Write Makefile to manage build command better.
 - [ ] Try to integrate `Websocket` with `gRpc`.
 - [ ] Better interface of compiled RPC proto files.
