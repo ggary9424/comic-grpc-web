@@ -1,6 +1,8 @@
 # Comic gRPC Web
 
-Mainly, this project is created for me to learn the `Golang` and [`gRPC`](https://grpc.io/). Besides, I want to use this project to save the time for checkout the comics I followed by browsing each URL everyday. Ppl are lazy, laziness welcomes technology, technology encourages laziness.
+Mainly, this project is created for me to learn the `Golang` and [`gRPC`](https://grpc.io/). Besides, I want to use this project to save the time for checkout the comics I followed by browsing each URL everyday.
+
+People are lazy, and laziness welcomes technology, so technology encourages laziness.
 
 ## Relative Projects
 
