@@ -5,6 +5,6 @@ debug = "true"
 port = "9090"
 
 [database]
-host = "docker.for.mac.host.internal"
+host = "localhost"
 port = "27017"
-name = "test"
+name = "comic-service-db"

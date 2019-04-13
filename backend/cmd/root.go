@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	log "github.com/sirupsen/logrus"
 
@@ -45,6 +46,10 @@ func init() {
 }
 
 func initConfig() {
+	viper.AutomaticEnv()
+	viper.SetEnvPrefix("APP")
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+
 	if cfgFile != "" {
 		viper.SetConfigFile(cfgFile)
 	} else {

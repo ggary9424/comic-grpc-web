@@ -22,7 +22,7 @@ static_resources:
                       routes:
                         - match: { prefix: "/" }
                           route:
-                            cluster: echo_service
+                            cluster: comic_grpc_server_service
                             max_grpc_timeout: 0s
                       cors:
                         allow_origin:
@@ -37,9 +37,18 @@ static_resources:
                   - name: envoy.cors
                   - name: envoy.router
   clusters:
-    - name: echo_service
+    - name: comic_grpc_server_service
       connect_timeout: 0.25s
       type: logical_dns
       http2_protocol_options: {}
       lb_policy: round_robin
-      hosts: [{ socket_address: { address: backend, port_value: 9090 } }]
+      hosts:
+        [
+          {
+            socket_address:
+              {
+                address: {{ GRPC_SERVER_HOST }},
+                port_value: {{ GRPC_SERVER_PORT }},
+              },
+          },
+        ]

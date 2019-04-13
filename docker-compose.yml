@@ -2,10 +2,14 @@ version: "3"
 
 services:
   backend:
-    # image: comic-grpc-web-backend:v0.0.1
     build:
       context: ./backend/
       dockerfile: ./Dockerfile
+    environment:
+      - APP_DATABASE_HOST=docker.for.mac.host.internal
+      - APP_DATABASE_PORT=27017
+      - APP_DATABASE_NAME=test
+      - APP_SERVER_PORT=8080
 
   frontend:
     build:
@@ -18,6 +22,9 @@ services:
     build:
       context: ./proxy/
       dockerfile: ./Dockerfile
+    environment:
+      - GRPC_SERVER_HOST=backend
+      - GRPC_SERVER_PORT=8080
     links:
       - backend
     ports:

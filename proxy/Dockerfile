@@ -14,6 +14,11 @@
 
 FROM envoyproxy/envoy:latest
 
-COPY ./envoy.yaml /etc/envoy/envoy.yaml
+ENV GRPC_SERVER_HOST=127.0.0.1
+ENV GRPC_SERVER_PORT=9090
 
-CMD /usr/local/bin/envoy -c /etc/envoy/envoy.yaml -l trace --log-path /tmp/envoy_info.log
+COPY ./envoy.yaml.template /etc/envoy/envoy.yaml.template
+CMD cat "/etc/envoy/envoy.yaml.template" \
+    | sed "s/{{ GRPC_SERVER_HOST }}/$GRPC_SERVER_HOST/g" \
+    | sed "s/{{ GRPC_SERVER_PORT }}/$GRPC_SERVER_PORT/g" > /etc/envoy/envoy.yaml \
+    && /usr/local/bin/envoy -c /etc/envoy/envoy.yaml -l trace --log-path /tmp/envoy_info.log
