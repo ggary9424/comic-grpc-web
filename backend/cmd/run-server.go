@@ -6,9 +6,9 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/ggary9424/comic-grpc-web/backend/db"
-	grpcEncoder "github.com/ggary9424/comic-grpc-web/backend/grpcencoder"
-	"github.com/ggary9424/comic-grpc-web/backend/protobuf"
+	"comic-grpc-web-backend/db"
+	grpcEncoder "comic-grpc-web-backend/grpcencoder"
+	"comic-grpc-web-backend/protobuf"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/golang/protobuf/ptypes/wrappers"
 	"github.com/spf13/cobra"
